@@ -63,22 +63,25 @@
                 var assets = "<a-assets>";
                 var camera = "<a-camera gps-camera rotation-reader> </a-camera>";
 
+                var count = 1;
                 snapshot.forEach(function(element) {
                     console.log(element.key);
                     console.log("Lat: " + element.val()["lat"]);
                     
                     assets = assets + `
-                        <a-asset-item id="flower${element.key}" src="media/gltf/sunflower/sunflower.gltf"> </a-asset-item>
+                        <a-asset-item id="flower${count}" src="media/gltf/sunflower/sunflower.gltf"> </a-asset-item>
                     `;
 
                     entities = entities + `
                       <a-entity 
                         look-at="[gps-camera]" 
-                        gltf-model="#flower${element.key}" 
+                        gltf-model="#flower${count}" 
                         scale="1.0 1.0 1.0" 
                         gps-entity-place="latitude: ${element.val()['lat']}; longitude: ${element.val()['lng']};">
                       </a-entity>
                     `;
+
+                    count = count + 1;
                 });
 
                 assets = assets + "</a-assets>";
