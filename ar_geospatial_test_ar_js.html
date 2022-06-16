@@ -53,13 +53,16 @@
             if (snapshot.exists())
             {
                 var children = JSON.stringify(snapshot.val());
-                for (var key in Object.keys(children))
+                
+                for (var key in children)
                 {
                     if (!children.hasOwnProperty(key)) continue;
                     console.log("Key: " + key);
                     console.log("Lat: " + children[key].lat);
                     console.log("Lng: " + children[key].lng);
                 }
+
+                console.log(children);
             }
             else 
             {
