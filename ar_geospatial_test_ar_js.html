@@ -53,13 +53,14 @@
             if (snapshot.exists())
             {
                 var sceneContainer = document.getElementById("scene_container");
+                var assetsContainer = document.getElementById("assets_container");
                 snapshot.forEach(function(element) {
                     console.log(element.key);
                     console.log("Lat: " + element.val()["lat"]);
-                    sceneContainer.innerHTML += `
-                      <a-assets>
+                    assetsContainer.innerHTML += `
                         <a-asset-item id="flower${element.key}" src="media/gltf/sunflower/sunflower.gltf"> </a-asset-item>
-                      </a-assets>
+                    `;
+                    sceneContainer.innerHTML += `
                       <a-entity 
                         look-at="[gps-camera]" 
                         gltf-model="#flower${element.key}" 
@@ -95,10 +96,10 @@
       renderer="logarithmicDepthBuffer: true;"
       embedded
       loading-screen="enabled: false;">
-      <!-- <a-assets>
-        <a-asset-item id="flower" src="media/gltf/sunflower/sunflower.gltf"> </a-asset-item>
+      <a-assets id="assets_container">
+        <!-- <a-asset-item id="flower" src="media/gltf/sunflower/sunflower.gltf"> </a-asset-item> -->
       </a-assets>
-      <a-entity 
+      <!-- <a-entity 
         look-at="[gps-camera]" 
         gltf-model="#flower" 
         scale="1.0 1.0 1.0" 
