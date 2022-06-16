@@ -55,6 +55,19 @@
                 snapshot.forEach(function(element) {
                     console.log(element.key);
                     console.log("Lat: " + element.val()["lat"]);
+
+                    var sceneContainer = document.getElementById("scene_container");
+                    sceneContainer.innerHTML += `
+                    <a-assets>
+                        <a-asset-item id="flower${element.key}" src="media/gltf/sunflower/sunflower.gltf"> </a-asset-item>
+                      </a-assets>
+                      <a-entity 
+                        look-at="[gps-camera]" 
+                        gltf-model="#flower${element.key}" 
+                        scale="1.0 1.0 1.0" 
+                        gps-entity-place="latitude: ${element.val()['lat']}; longitude: ${element.val()['lng']};">
+                      </a-entity>
+                    `;
                 });
             }
             else 
@@ -78,11 +91,12 @@
       </details>
     </header> -->
     <a-scene
+      id="scene_container"
       arjs="sourceType: webcam; debugUIEnabled: false;"
       renderer="logarithmicDepthBuffer: true;"
       embedded
-      loading-screen="enabled: false;">
-      <a-assets>
+      loading-screen="enabled: true;">
+      <!-- <a-assets>
         <a-asset-item id="flower" src="media/gltf/sunflower/sunflower.gltf"> </a-asset-item>
       </a-assets>
       <a-entity 
@@ -90,7 +104,7 @@
         gltf-model="#flower" 
         scale="1.0 1.0 1.0" 
         gps-entity-place="latitude: 30.2895629; longitude: 31.0548332;">
-      </a-entity>
+      </a-entity> -->
       <!-- <a-text
         value="This content will always face you."
         look-at="[gps-camera]"
