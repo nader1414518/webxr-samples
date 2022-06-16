@@ -67,11 +67,11 @@
                     console.log(element.key);
                     console.log("Lat: " + element.val()["lat"]);
                     
-                    assets += `
+                    assets = assets + `
                         <a-asset-item id="flower${element.key}" src="media/gltf/sunflower/sunflower.gltf"> </a-asset-item>
                     `;
 
-                    entities += `
+                    entities = entities + `
                       <a-entity 
                         look-at="[gps-camera]" 
                         gltf-model="#flower${element.key}" 
@@ -81,9 +81,9 @@
                     `;
                 });
 
-                assets += "</a-assets>";
+                assets = assets + "</a-assets>";
 
-                scene += assets + entities + camera + "</a-scene>";
+                scene = scene + assets + entities + camera + "</a-scene>";
 
                 var sceneContainer = document.getElementById("scene_container");
 
