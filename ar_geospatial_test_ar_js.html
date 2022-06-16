@@ -52,7 +52,13 @@
         get(child(dbRef, 'Markers')).then((snapshot) => {
             if (snapshot.exists())
             {
-                var sceneContainer = document.getElementById("scene_container");
+                var scene = `
+                    <a-scene
+                    arjs="sourceType: webcam; debugUIEnabled: false;"
+                    renderer="logarithmicDepthBuffer: true;"
+                    embedded
+                    loading-screen="enabled: false;">
+                `;
                 var entities = "";
                 var assets = "<a-assets>";
                 var camera = "<a-camera gps-camera rotation-reader> </a-camera>";
@@ -77,7 +83,11 @@
 
                 assets += "</a-assets>";
 
-                sceneContainer.innerHTML = camera + assets + entities;
+                scene += assets + entities + camera + "</a-scene>";
+
+                var sceneContainer = document.getElementById("scene_container");
+
+                sceneContainer.innerHTML = scene;
             }
             else 
             {
@@ -90,26 +100,6 @@
         console.log(error);
     });
   </script>
-    <a-scene
-      id="scene_container"
-      arjs="sourceType: webcam; debugUIEnabled: false;"
-      renderer="logarithmicDepthBuffer: true;"
-      embedded
-      loading-screen="enabled: false;">
-      <!-- <a-assets id="assets_container">
-        <a-asset-item id="flower" src="media/gltf/sunflower/sunflower.gltf"> </a-asset-item>
-      </a-assets> -->
-      <!-- <a-entity 
-        look-at="[gps-camera]" 
-        gltf-model="#flower" 
-        scale="1.0 1.0 1.0" 
-        gps-entity-place="latitude: 30.2895629; longitude: 31.0548332;">
-      </a-entity> -->
-      <!-- <a-text
-        value="This content will always face you."
-        look-at="[gps-camera]"
-        scale="120 120 120"
-        gps-entity-place="latitude: 30.2895629; longitude: 31.0548332;"></a-text> -->
-    </a-scene>
+  <div id="scene_container"></div>
   </body>
 </html>
