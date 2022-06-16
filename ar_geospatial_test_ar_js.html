@@ -60,14 +60,14 @@
                     assetsContainer.innerHTML += `
                         <a-asset-item id="flower${element.key}" src="media/gltf/sunflower/sunflower.gltf"> </a-asset-item>
                     `;
-                    sceneContainer.innerHTML += `
-                      <a-entity 
-                        look-at="[gps-camera]" 
-                        gltf-model="#flower${element.key}" 
-                        scale="1.0 1.0 1.0" 
-                        gps-entity-place="latitude: ${element.val()['lat']}; longitude: ${element.val()['lng']};">
-                      </a-entity>
-                    `;
+                    //sceneContainer.innerHTML += `
+                    //  <a-entity 
+                    //    look-at="[gps-camera]" 
+                    //    gltf-model="#flower${element.key}" 
+                    //    scale="1.0 1.0 1.0" 
+                    //    gps-entity-place="latitude: ${element.val()['lat']}; longitude: ${element.val()['lng']};">
+                    //  </a-entity>
+                    //`;
                 });
             }
             else 
