@@ -53,7 +53,7 @@
             if (snapshot.exists())
             {
                 var children = JSON.stringify(snapshot.val());
-                for (key in children)
+                for (var key in Object.keys(children))
                 {
                     if (!children.hasOwnProperty(key)) continue;
                     console.log("Key: " + key);
