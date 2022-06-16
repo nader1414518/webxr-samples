@@ -80,7 +80,7 @@ export class Gltf2Loader {
               return this.loadFromJson(json, baseUrl);
             });
           } else if (url.endsWith('.glb')) {
-            alert("GLB file detected loading it ... ");
+            // alert("GLB file detected loading it ... ");
             return response.arrayBuffer().then((arrayBuffer) => {
               return this.loadFromBinary(arrayBuffer, baseUrl);
             });
