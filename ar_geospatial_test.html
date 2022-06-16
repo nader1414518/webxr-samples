@@ -70,8 +70,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       //let flower = new Gltf2Node({url: 'media/gltf/sunflower/sunflower.gltf'});
       //arObject.addNode(flower);
 
-      let drone = new Gltf2Node({url: 'media/gltf/sdw/volo_drone_1.glb'});
-      arObject.addNode(drone);
+      let flower = new Gltf2Node({url: 'media/gltf/sdw/volo_drone_1.glb'});
+      arObject.addNode(flower);
 
       let reticle = new Gltf2Node({url: 'media/gltf/reticle/reticle.gltf'});
       reticle.visible = false;
@@ -179,6 +179,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
           scene.removeNode(objectToRemove.anchoredObject);
           objectToRemove.anchor.delete();
         }
+
+        alert("Placed anchor successfully ... ");
       }
 
       let rayOrigin = vec3.create();
