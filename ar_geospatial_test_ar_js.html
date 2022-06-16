@@ -16,7 +16,24 @@
     <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
   </head>
   <body>
-    <div id="scene_container"></div>
+    <div id="scene_container">
+        <a-scene
+            arjs="sourceType: webcam; debugUIEnabled: true;"
+            renderer="logarithmicDepthBuffer: true;"
+            embedded
+            loading-screen="enabled: true;">
+        <a-camera gps-camera rotation-reader> </a-camera>
+            <a-assets>
+                <a-asset-item id="flower1" src="media/gltf/sunflower/sunflower.gltf"> </a-asset-item>
+            </a-assets>
+                <a-entity 
+                    look-at="[gps-camera]" 
+                    gltf-model="#flower1" 
+                    scale="1.0 1.0 1.0" 
+                    gps-entity-place="latitude: 30.289686153164322; longitude: 31.05502251058964;">
+                </a-entity>
+        </a-scene>
+    </div>
   <script type="module">
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js";
@@ -91,9 +108,9 @@
 
                 var sceneContainer = document.getElementById("scene_container");
 
-                console.log(scene);
+                //console.log(scene);
 
-                sceneContainer.innerHTML = scene;
+                //sceneContainer.innerHTML = scene;
             }
             else 
             {
