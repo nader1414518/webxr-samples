@@ -52,17 +52,10 @@
         get(child(dbRef, 'Markers')).then((snapshot) => {
             if (snapshot.exists())
             {
-                var children = JSON.stringify(snapshot.val());
-                
-                for (var key in children)
-                {
-                    if (!children.hasOwnProperty(key)) continue;
-                    console.log("Key: " + key);
-                    console.log("Lat: " + children[key].lat);
-                    console.log("Lng: " + children[key].lng);
-                }
-
-                console.log(children);
+                snapshot.forEach(function(element) {
+                    console.log(element.key);
+                    console.log("Lat: " + element.val()["lat"]);
+                });
             }
             else 
             {
