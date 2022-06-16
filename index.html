@@ -245,10 +245,14 @@
               path: 'ar-barebones.html',
               description: 'Extremely simple use of "immersive-ar" sessions with no library dependencies. Doesn\'t render anything exciting.',
               noPolyfill: true },
+            
+            { title: 'SDW AR Geospatial Test', category: 'Test',
+            path: 'ar_geospatial_test.html',
+            description: 'Basic implementation of anchors.',
+            noPolyfill: true },
           ];
 
           let mainElement = document.getElementById("main");
-
           // Append an element for every item in the pages list.
           let pageIndex = 0;
           for (var i = 0; i < pages.length; ++i) {
