@@ -53,22 +53,30 @@
             if (snapshot.exists())
             {
                 var sceneContainer = document.getElementById("scene_container");
-                var assetsContainer = document.getElementById("assets_container");
+                var entities = "";
+                var assets = "<a-assets>";
+
                 snapshot.forEach(function(element) {
                     console.log(element.key);
                     console.log("Lat: " + element.val()["lat"]);
-                    assetsContainer.innerHTML += `
+                    
+                    assets += `
                         <a-asset-item id="flower${element.key}" src="media/gltf/sunflower/sunflower.gltf"> </a-asset-item>
                     `;
-                    //sceneContainer.innerHTML += `
-                    //  <a-entity 
-                    //    look-at="[gps-camera]" 
-                    //    gltf-model="#flower${element.key}" 
-                    //    scale="1.0 1.0 1.0" 
-                    //    gps-entity-place="latitude: ${element.val()['lat']}; longitude: ${element.val()['lng']};">
-                    //  </a-entity>
-                    //`;
+
+                    entities += `
+                      <a-entity 
+                        look-at="[gps-camera]" 
+                        gltf-model="#flower${element.key}" 
+                        scale="1.0 1.0 1.0" 
+                        gps-entity-place="latitude: ${element.val()['lat']}; longitude: ${element.val()['lng']};">
+                      </a-entity>
+                    `;
                 });
+
+                assets += "</a-assets>";
+
+                sceneContainer.innerHTML = assets + entities;
             }
             else 
             {
@@ -81,24 +89,15 @@
         console.log(error);
     });
   </script>
-    <!-- <header>
-      <details open>
-        <summary>AR Geospatial Test AR JS</summary>
-        <p>
-          This sample demonstrates placing geospatial anchors using AR JS.
-          <a class="back" href="./">Back</a>
-        </p>
-      </details>
-    </header> -->
     <a-scene
       id="scene_container"
       arjs="sourceType: webcam; debugUIEnabled: false;"
       renderer="logarithmicDepthBuffer: true;"
       embedded
       loading-screen="enabled: false;">
-      <a-assets id="assets_container">
-        <!-- <a-asset-item id="flower" src="media/gltf/sunflower/sunflower.gltf"> </a-asset-item> -->
-      </a-assets>
+      <!-- <a-assets id="assets_container">
+        <a-asset-item id="flower" src="media/gltf/sunflower/sunflower.gltf"> </a-asset-item>
+      </a-assets> -->
       <!-- <a-entity 
         look-at="[gps-camera]" 
         gltf-model="#flower" 
