@@ -70,7 +70,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       //let flower = new Gltf2Node({url: 'media/gltf/sunflower/sunflower.gltf'});
       //arObject.addNode(flower);
 
-      let drone = new Gltf2Node({url: 'media/gltf/sdw/volo drone 1.glb'});
+      let drone = new Gltf2Node({url: 'media/gltf/sdw/volo_drone_1.glb'});
       arObject.addNode(drone);
 
       let reticle = new Gltf2Node({url: 'media/gltf/reticle/reticle.gltf'});
@@ -164,7 +164,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       const MAX_ANCHORED_OBJECTS = 30;
       let anchoredObjects = [];
       function addAnchoredObjectsToScene(anchor) {
-        let flower = new Gltf2Node({url: 'media/gltf/sdw/volo drone 1.glb'});
+        let flower = new Gltf2Node({url: 'media/gltf/sdw/volo_drone_1.glb'});
         scene.addNode(flower);
         anchoredObjects.push({
           anchoredObject: flower,
@@ -190,6 +190,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
             addAnchoredObjectsToScene(anchor);
           }, (error) => {
             console.error("Could not create anchor: " + error);
+            alert("Couldn't create anchor: " + error);
           });
         }
       }
