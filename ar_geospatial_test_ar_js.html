@@ -15,23 +15,23 @@
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
     <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
   </head>
-  <body>
+  <body style="margin: 0; overflow: hidden;">
     <div id="scene_container">
         <a-scene
-            arjs="sourceType: webcam; debugUIEnabled: true;"
-            renderer="logarithmicDepthBuffer: true;"
-            embedded
-            loading-screen="enabled: true;">
-        <a-camera gps-camera rotation-reader> </a-camera>
+        renderer="logarithmicDepthBuffer: true;"
+        embedded
+        loading-screen="enabled: false;"
+        arjs="sourceType: webcam; debugUIEnabled: false;">
             <a-assets>
-                <a-asset-item id="flower1" src="media/gltf/sunflower/sunflower.gltf"> </a-asset-item>
+                <a-asset-item id="flower1" src="media/glb/VOLODRONE_1.glb"> </a-asset-item>
             </a-assets>
-                <a-entity 
-                    look-at="[gps-camera]" 
-                    gltf-model="#flower1" 
-                    scale="10.0 10.0 10.0" 
-                    gps-entity-place="latitude: 30.289686153164322; longitude: 31.05502251058964;">
-                </a-entity>
+            <a-entity 
+                look-at="[gps-camera]" 
+                gltf-model="#flower1" 
+                scale="1.0 1.0 1.0" 
+                gps-entity-place="latitude: 30.289686153164322; longitude: 31.05502251058964;">
+            </a-entity>
+            <a-camera gps-camera rotation-reader> </a-camera>
         </a-scene>
     </div>
   <script type="module">
