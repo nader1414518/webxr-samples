@@ -56,12 +56,12 @@
                         arjs="sourceType: webcam; debugUIEnabled: true;"
                         renderer="logarithmicDepthBuffer: true;"
                         embedded
-                        loading-screen="enabled: true;">
+                        loading-screen="enabled: false;">
                     `;
                     var entities = "";
                     var assets = "<a-assets>";
                         assets = assets + `
-                        <a-asset-item id="flower${count}" src="media/glb/VOLODRONE_1.glb"> </a-asset-item>
+                        <a-asset-item id="drone" src="media/glb/VOLODRONE_1.glb"> </a-asset-item>
                     `;
                     var camera = "<a-camera gps-camera rotation-reader> </a-camera>";
     
@@ -73,7 +73,7 @@
                         entities = entities + `
                           <a-entity 
                             look-at="[gps-camera]" 
-                            gltf-model="#flower${count}" 
+                            gltf-model="#drone" 
                             scale="0.13989708373474202 0.13989708373474202 0.13989708373474202" 
                             gps-entity-place="latitude: ${element.val()['lat']}; longitude: ${element.val()['lng']};">
                           </a-entity>
